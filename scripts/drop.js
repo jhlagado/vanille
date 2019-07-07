@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Customer = require('../model/customer');
+const Customer = require('../models/customer');
 
 const run = async() => {
 

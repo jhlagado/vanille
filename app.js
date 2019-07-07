@@ -43,7 +43,7 @@ const customerKeys = [
 app.use('/customers', customerRoutes(Customer, customerKeys));
 
 app.get('/', (_req, res) => {
-  res.redirect('/customers');
+  // res.redirect('/customers');
 });
 
 app.use(function(req, res, next) {
