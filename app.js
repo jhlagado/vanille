@@ -9,8 +9,8 @@ const flash = require('connect-flash');
 const expressMessages = require('express-messages');
 const session = require('express-session');
 
-const Customer = require('./model/customer');
-const customerRoutes = require('./route/customer');
+const Customer = require('./models/customer');
+const customerRoutes = require('./routes/customer');
 
 const app = express();
 
