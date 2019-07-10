@@ -1,26 +1,30 @@
-const express = require('express');
 const createError = require('http-errors');
+const express = require('express');
 const path = require('path');
-const logger = require('morgan');
-const cors = require('cors');
-const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const hbs = require('express-hbs');
 const flash = require('connect-flash');
-const expressMessages = require('express-messages');
 const session = require('express-session');
+const bodyParser = require('body-parser'); 
 
-const Customer = require('./models/customer');
-const customerRoutes = require('./routes/customer');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const customersRouter = require('./routes/customers');
 
 const app = express();
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+app.engine('hbs', hbs.express4({
+  partialsDir: path.join(__dirname, 'views/partials'),
+  layoutsDir: path.join(__dirname, 'views/layouts'),
+  defaultLayout: path.join(__dirname, 'views/layouts/layout')
+}));
+app.set('view engine', 'hbs');
+app.set('views', __dirname + '/views');
 
 app.use(logger('dev'));
-app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
@@ -32,19 +36,20 @@ app.use(session({
 }));
 
 app.use(function(req, res, next) {
-  res.locals.messages = expressMessages(req, res);
+  res.locals.messages = req.flash(); 
   next();
 });
 
+const Customer = require('./models/customer');
+const customerRoutes = require('./routes/customers');
 const customerKeys = [
   'id', 'first_name', 'last_name',
   'email', 'gender', 'ip_address',
 ];
-app.use('/customers', customerRoutes(Customer, customerKeys));
 
-app.get('/', (_req, res) => {
-  // res.redirect('/customers');
-});
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/customers', customersRouter(Customer, customerKeys));
 
 app.use(function(req, res, next) {
   next(createError(404));

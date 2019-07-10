@@ -1,0 +1,7 @@
+<div class="messages">
+  {{#each messages as |item|}}
+    {{#each item}}
+      <div class="alert alert-{{@key}}">{{this}}</div>
+    {{/each}}
+  {{/each}}
+</div>
