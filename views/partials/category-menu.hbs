@@ -1,0 +1,15 @@
+<ul class="category-menu">
+{{#each sidemenu}}
+  <li class="category">
+    <input id="{{this.id}}" type="checkbox" name="a-toggle">
+    <label for="{{this.id}}" class="category-title">{{this.title}}</label>
+    {{#if this.children}}
+    <ul class="category-items">
+      {{#each this.children}}
+      <li>{{this.title}}</li>
+      {{/each}}
+    </ul>
+    {{/if}}
+  </li>
+{{/each}}
+</ul>
