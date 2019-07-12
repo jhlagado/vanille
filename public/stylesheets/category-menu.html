@@ -1,0 +1,117 @@
+<style>
+body,
+html {
+  margin: 0;
+  font-family: arial;
+  height: 100vh;
+  background: #ccc;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.category-menu {
+  width: 300px;
+  margin: 60px auto;
+  border-radius: 4px;
+  list-style-type: none;
+  padding: 0;
+}
+.category-menu ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+.category-menu .category {
+  position: relative;
+  background: #fff;
+}
+.category-menu .category .category-title {
+  padding-left: 20px;
+  height: 40px;
+  font-size: 18px;
+  line-height: 40px;
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+.category-menu .category .category-title:hover {
+  background: #f0f0f0;
+}
+.category-menu .category .category-items {
+  max-height: 0.01px;
+  margin: 0;
+  overflow: hidden;
+  transition: max-height 1.5s ease;
+}
+.category-menu .category .category-items li {
+  padding: 5px 20px;
+}
+.category-menu .category .category-items li:first-child {
+  padding-top: 10px;
+}
+.category-menu .category .category-items li:last-child {
+  padding-bottom: 10px;
+}
+.category-menu .category input {
+  position: absolute;
+  opacity: 0;
+}
+.category-menu .category input.active ~ .category-items, .category-menu .category input:checked ~ .category-items {
+  transition: max-height 3s ease;
+  height: auto;
+  max-height: 2000px;
+  -webkit-transform: translate3d(0, 0, 0);
+}
+.category-menu .category input ~ .category-title:after {
+  content: "\203A";
+  position: absolute;
+  width: 40px;
+  font-size: 32px;
+  right: 0;
+  padding-left: 15px;
+  top: 0;
+  bottom: 0;
+  transform: rotate(0deg);
+  transition: transform 0.1s ease;
+}
+.category-menu .category input:checked ~ .accordion-title:after {
+  transform: rotate(90deg);
+  right: -2px;
+}
+
+
+</style>
+
+<ul class="category-menu">
+  <li class="category">
+    <input id="one" type="checkbox" name="a-toggle">
+    <label for="one" class="category-title">Category One</label>
+    <ul class="category-items">
+      <li>Item One</li>
+      <li>Item Two</li>
+      <li>Item Three</li>
+    </ul>
+  </li>
+  <li class="category">
+    <input id="two" type="checkbox" name="a-toggle">
+    <label for="two" class="category-title">Category Two</label>
+    <ul class="category-items">
+      <li>Item A</li>
+      <li>Item B</li>
+    </ul>
+  </li>
+  <li class="category">
+    <input id="tre" type="checkbox" name="a-toggle">
+    <label for="tre" class="category-title">Category Three</label>
+    <ul class="category-items">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+    </ul>
+</ul>
+</div>
+<hr />
