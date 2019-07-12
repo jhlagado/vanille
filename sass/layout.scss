@@ -1,0 +1,54 @@
+:root {
+  --topbar-color: #eee;
+  --topbar-bg-color: #444;
+  --topbar-height: 60px;
+}
+
+body,
+html {
+  margin: 0;
+  font-family: arial;
+  height: 100vh;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.topbar {
+  background: var(--topbar-bg-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: var(--topbar-height);
+  z-index: 1;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  color:  var(--topbar-color);
+}
+
+.page {
+  display: flex;
+  flex-direction: row;
+  margin-top: var(--topbar-height);
+  padding-top: 30px;
+  height: 2000px;
+
+  aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-right: 30px;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+}

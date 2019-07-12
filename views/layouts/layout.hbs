@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{{title}}</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="{{description}}">
-    <meta name="author" content="{{author}}">
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
-    {{!-- <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css"> --}}
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
-    <link rel='stylesheet' href='/stylesheets/category-menu.css'/>
+  <title>{{title}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="{{description}}">
+  <meta name="author" content="{{author}}">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+  <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+  <link rel='stylesheet' href='/stylesheets/layout.css'/>
+  <link rel='stylesheet' href='/stylesheets/category-menu.css'/>
 </head>
 <body>
-<div class="container">
-    <div class="top-bar">X</div>
-    <div class="sidemenu-panel">
-      <nav>
-        {{> category-menu}}
-      </nav>
-    </div>
-    <div class="main-panel">
-    {{> messages }}
-    {{{body}}}
-    </div>
-</div>
+  <style>
+
+
+  </style>
+  <div class="topbar">X</div>
+  <div class="page">
+      <aside>
+        <nav>
+          {{> category-menu}}
+        </nav>
+      </aside>
+      <main>
+      {{> messages }}
+      {{{body}}}
+      </main>
+  </main>
 </body>
 </html>

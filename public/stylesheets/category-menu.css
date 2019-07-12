@@ -1,7 +1,5 @@
+@charset "UTF-8";
 .category-menu {
-  width: 300px;
-  margin: 60px auto;
-  border-radius: 4px;
   list-style-type: none;
   padding: 0;
 }
@@ -26,7 +24,7 @@
   user-select: none;
 }
 .category-menu .category .category-title:hover {
-  background: #f0f0f0;
+  background: #eee;
 }
 .category-menu .category .category-items {
   font-size: 16px;
@@ -52,10 +50,9 @@
   transition: max-height 2s ease;
   height: auto;
   max-height: 1000px;
-  -webkit-transform: translate3d(0, 0, 0);
 }
 .category-menu .category input ~ .category-title:after {
-  content: "\203A";
+  content: "›";
   position: absolute;
   width: 40px;
   font-size: 32px;
@@ -70,3 +67,5 @@
   transform: rotate(90deg);
   right: -2px;
 }
+
+/*# sourceMappingURL=category-menu.css.map */
